@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
 
     return axios.create({
-        baseURL: '',
+        baseURL: 'https://foodtrucktrackerbw.herokuapp.com',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': token

@@ -1,15 +1,24 @@
 import React from "react";
 import {useForm} from "react-hook-form";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import {Link} from "react-router-dom";
+
 
 
 function RegForm(){
-
-    const onSubmit = (data) => {
-        console.log(data)
-    };
+  
     const { register, handleSubmit, errors } = useForm();
     
-
+    const onSubmit = (data, e) => {
+        e.preventDefault();
+        axiosWithAuth()
+        .post('/api/auth/register', data)
+        .then(response => {
+            console.log(response);
+            localStorage.setItem('token', response.data.token);
+            
+        })
+    }
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Food Truck Tracker Registration</h1>
@@ -25,16 +34,24 @@ function RegForm(){
             <label>Email:</label>
             <input name="email" type="email" placeholder="food@truck.com" ref={register({ required: "Email required", pattern: {value: /^\S+@\S+$/i, message:"Email not valid"} })} />
             {errors.email && <p>{errors.email.message}</p>}
-
+            
             <label>I am:</label>
-            <select name="dinerOrOwner" ref={register({ required: "Must select option" })} >
+            <select name="userRole" ref={register({ required: "Must select option" })} >
                 <option value="">Select...</option>
-                <option value="diner">A Hungry Diner</option>
-                <option value="owner">Food Truck Operator</option>
+                <option value="2">A Hungry Diner</option>
+                <option value="1">Food Truck Operator</option>
             </select>
-            {errors.dinerOrOwner && <p>{errors.dinerOrOwner.message}</p>}
+            {errors.userRole && <p>{errors.userRole.message}</p>}
+
+            {/* <label>Enable my location</label>
+            <input type="checkbox" name="location" ref={register ({required: "Must agree to share location"})} />
+            {errors.location && <p>{errors.location.message}</p>}
+             */}
+            
             
             <input name="submit" type="submit" />
+
+            <Link to='/'>Already a user? LOG IN</Link> 
 
         </form>
     )
