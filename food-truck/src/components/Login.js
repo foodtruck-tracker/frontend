@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
     const [loginInfo, setLoginInfo] = useState({
@@ -17,11 +18,17 @@ const Login = (props) => {
     const handleSubmit = event => {
         event.preventDefault();
         axiosWithAuth()
-            .post('', loginInfo)
+            .post('/api/auth/login', loginInfo)
             .then(response => {
                 console.log(response);
+                const userRole = response.data.role
                 localStorage.setItem('token', response.data.payload);
-                props.history.push('')
+                localStorage.setItem('username', response.data.username);
+                if (userRole === 1) {
+                props.history.push('/operator-dashboard')
+                } else {
+                    props.history.push('/diner-dashboard')
+                }                
             })
             .catch(err => console.log('Login Error', err));
     };
@@ -49,30 +56,12 @@ const Login = (props) => {
                     onChange={handleChange}
                 />
 
-                <button type="submit">Log In</button>    
+                <button type="submit">Log In</button>   
+
+                <Link to='/register'>Don't have an account? Sign Up!</Link> 
             </form>
         </div>
     );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
