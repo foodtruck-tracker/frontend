@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Trucks = () => {
+const Location = () => {
     return(
         <div>
 
@@ -8,4 +8,4 @@ const Trucks = () => {
     );
 };
 
-export default Trucks;
+export default Location;
