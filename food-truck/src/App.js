@@ -33,6 +33,7 @@ class App extends Component {
          
 
         <PrivateRoute path='/operator-dashboard' component={Dashboard} /> */}
+        <Route path= "/diners" component={Diners} />
          <Route path= "/becomeadiner" component={DinerForm} />
      
       <hr />
