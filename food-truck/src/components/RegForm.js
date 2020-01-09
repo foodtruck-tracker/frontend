@@ -1,8 +1,7 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from "axios";
 import {Link} from "react-router-dom";
-
 
 
 function RegForm(){
@@ -11,8 +10,8 @@ function RegForm(){
     
     const onSubmit = (data, e) => {
         e.preventDefault();
-        axiosWithAuth()
-        .post('/api/auth/register', data)
+        axios
+        .post("https://foodtrucktrackerbw.herokuapp.com/api/auth/register", data)
         .then(response => {
             console.log(response);
             localStorage.setItem('token', response.data.token);
@@ -34,6 +33,10 @@ function RegForm(){
             <label>Email:</label>
             <input name="email" type="email" placeholder="food@truck.com" ref={register({ required: "Email required", pattern: {value: /^\S+@\S+$/i, message:"Email not valid"} })} />
             {errors.email && <p>{errors.email.message}</p>}
+
+            <label>City:</label>
+            <input name="city" type="text" placeholder="City" ref={register({required: "City required"})} />
+            {errors.city && <p>{errors.city.message}</p>}
             
             <label>I am:</label>
             <select name="userRole" ref={register({ required: "Must select option" })} >
@@ -43,12 +46,6 @@ function RegForm(){
             </select>
             {errors.userRole && <p>{errors.userRole.message}</p>}
 
-            {/* <label>Enable my location</label>
-            <input type="checkbox" name="location" ref={register ({required: "Must agree to share location"})} />
-            {errors.location && <p>{errors.location.message}</p>}
-             */}
-            
-            
             <input name="submit" type="submit" />
 
             <Link to='/'>Already a user? LOG IN</Link> 
