@@ -20,18 +20,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Dashboard />
-        
-          {/* <Route exact path="/" component={Login} /> 
-          <Route path= "/register" component={RegForm} />
+        {/* <Dashboard /> 
+        {/* <Trucks /> */}
+         <Route exact path="/" component={Login} /> 
+         <Route path= "/register" component={RegForm} /> 
 
-        <PrivateRoute path='/operator-dashboard' component={Dashboard} /> 
+        {/* <PrivateRoute path='/operator-dashboard' component={Dashboard} /> 
+
         <PrivateRoute path='/addtruck' component={AddTruck} />
         <PrivateRoute path='/location' component={Location} />
         <PrivateRoute path='/menu' component={Menu} />
         <PrivateRoute path='/reviews' component={Reviews} />        
-        <PrivateRoute path='/trucks' component={Trucks} />
-        */}
+        <PrivateRoute path='/trucks' component={Trucks} /> */}
+        
       </div>
     </Router>
   );
