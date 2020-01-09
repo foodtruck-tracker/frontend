@@ -1,6 +1,6 @@
 import React from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import NavBar from "./components/Operator/NavBar";
+import NavBar from "./NavBar";
 
 
 import { makeStyles } from '@material-ui/core/styles';
