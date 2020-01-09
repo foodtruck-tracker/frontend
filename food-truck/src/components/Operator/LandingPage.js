@@ -1,10 +1,13 @@
 import React from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import NavBar from "./NavBar";
+
+
 import {
     Card, CardImg, CardTitle, Col, Row, Container
   } from 'reactstrap';
 import {Link} from "react-router-dom";
+
 
 
 

@@ -30,13 +30,17 @@ const NavBar = (props) => {
               <NavLink href="/trucks">My Trucks</NavLink>
             </NavItem>
             <NavItem>
+
               <NavLink href="/menu">Food Menu</NavLink>
+
             </NavItem>
             <NavItem>
               <NavLink href="/reviews">Reviews</NavLink>
             </NavItem>
             <NavItem>
+
               <NavLink href="/location">Update Location</NavLink>
+
             </NavItem>
             <NavItem>
             <NavLink href="/addtruck">Add Truck</NavLink>
