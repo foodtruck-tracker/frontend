@@ -11,7 +11,7 @@ import { fetchDiners } from '../../actions/dinerActions';
 
    componentWillReceiveProps(nextProps) {
      if (nextProps.newDiner) {
-       this.props.posts.unshift(nextProps.newDiner);
+       this.props.diners.unshift(nextProps.newDiner);
      }
    }
 
