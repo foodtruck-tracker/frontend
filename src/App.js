@@ -13,7 +13,7 @@ function App() {
       
         <Switch>
           <PrivateRoute path="/diner-dashboard" component={FavoritePage} />
-          <Route path="/" component={Login} />
+          <Route path="/login" component={Login} />
           <Route path= "/register" component={FormikRegistration} />
         </Switch>
       </div>
